@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp1.addcl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="addcl" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnAddData" Content="Добавить" Click="BtnAddData_Click"/>
+            <Button x:Name="BtnDeleteData" Content="Удалить" Click="BtnDeleteData_Click"/>
+            <Button x:Name="BtnAddClientService" Content="Сервис" Click="BtnAddClientService_Click"/>
+
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="DataGridClient" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DataGridClient_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Patronymic" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}"/>
+                <DataGridTextColumn Header="RegistrationDate" Binding="{Binding RegistrationDate}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="GenderCode" Binding="{Binding GenderCode}"/>
+                <DataGridTextColumn Header="PhotoPath" Binding="{Binding PhotoPath}"/>
+                <DataGridTemplateColumn Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditData" Click="BtnEditData_Click_1">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
